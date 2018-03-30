@@ -11,7 +11,7 @@ public class SelectionSort {
         for (int i = 0; i < nums.length; ++i) {
             // find minIndex in [i, nums.length)
             int minIndex = i;
-            for (int j = i; j < nums.length; ++j) {
+            for (int j = i + 1; j < nums.length; ++j) {
                 if (nums[minIndex] > nums[j]) {
                     minIndex = j;
                 }
