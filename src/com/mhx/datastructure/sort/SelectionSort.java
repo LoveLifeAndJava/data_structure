@@ -20,6 +20,22 @@ public class SelectionSort {
         }
     }
 
+    public void sortOptimize(int[] nums) {
+        for (int i = 0; i < nums.length; ++i) {
+            // find minIndex in [i, nums.length)
+            int minIndex = i;
+            for (int j = i + 1; j < nums.length; ++j) {
+                if (nums[minIndex] > nums[j]) {
+                    minIndex = j;
+                }
+            }
+            // in case of useless swap operations
+            if (i != minIndex) {
+                swap(nums, i, minIndex);
+            }
+        }
+    }
+
     private void swap(int[] nums, int i, int j) {
         int temp = nums[i];
         nums[i] = nums[j];
