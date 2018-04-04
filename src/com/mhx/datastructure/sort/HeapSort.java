@@ -9,7 +9,7 @@ import java.util.Arrays;
 public class HeapSort {
     public void sort(int[] nums, int n, int k) {
         // heapify (build the array into a max heap)
-        for (int i = (n - 1) / 2; i >= 0; --i) {
+        for (int i = (n - 1 - 1) / 2; i >= 0; --i) {
             shiftDown(nums, n, i);
         }
         // i > 0, when the array contains only one element, do nothing.
@@ -23,7 +23,7 @@ public class HeapSort {
         while (k * 2 + 1 < n) {
             int j = k * 2 + 1;
             if (j + 1 < n && nums[j + 1] > nums[j]) {
-                j += 1;
+                ++j;
             }
             if (nums[k] >= nums[j]) {
                 break;
@@ -41,6 +41,7 @@ public class HeapSort {
 
     public static void main(String[] args) {
         int[] nums = {6, 5, 4, 3, 2, 1, 0, -1, 6, 5, 4, 3, 6, 5, 4, 3, 6, 5, 4, 3};
+        System.out.println(Arrays.toString(nums));
         new HeapSort().sort(nums, nums.length, 0);
         System.out.println(Arrays.toString(nums));
     }
